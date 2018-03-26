@@ -1,2 +1,2 @@
 # JavaUrn
-Uma urna eletrônia de código aberto.
+Uma urna eletrônica de código aberto.
