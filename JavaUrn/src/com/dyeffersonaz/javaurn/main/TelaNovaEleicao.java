@@ -49,31 +49,31 @@ public class TelaNovaEleicao extends JFrame {
 	public TelaNovaEleicao() {
 		setTitle("Criar nova eleição...");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 277, 442);
+		setBounds(100, 100, 277, 399);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNomeDaEleio = new JLabel("Nome da Eleição");
-		lblNomeDaEleio.setBounds(20, 16, 221, 14);
+		lblNomeDaEleio.setBounds(20, 11, 221, 14);
 		contentPane.add(lblNomeDaEleio);
 		
 		NomedaEleicao = new JTextField();
-		NomedaEleicao.setBounds(20, 41, 221, 20);
+		NomedaEleicao.setBounds(20, 36, 221, 20);
 		contentPane.add(NomedaEleicao);
 		NomedaEleicao.setColumns(10);
 		
 		JLabel lblEspecificaesvideDocumentao = new JLabel("Especificações (VIDE Documentação)");
-		lblEspecificaesvideDocumentao.setBounds(20, 72, 221, 14);
+		lblEspecificaesvideDocumentao.setBounds(20, 67, 221, 14);
 		contentPane.add(lblEspecificaesvideDocumentao);
 		
 		JButton btnCriar = new JButton("Criar!");
-		btnCriar.setBounds(94, 365, 91, 23);
+		btnCriar.setBounds(90, 342, 91, 23);
 		contentPane.add(btnCriar);
 		
 		JTextArea specificacoes = new JTextArea();
-		specificacoes.setBounds(26, 97, 221, 180);
+		specificacoes.setBounds(20, 92, 221, 180);
 		contentPane.add(specificacoes);
 		
 		JButton btnNewButton = new JButton("Selecionar Pasta para salvar a eleição");
@@ -88,11 +88,11 @@ public class TelaNovaEleicao extends JFrame {
 			
 			
 		});
-		btnNewButton.setBounds(26, 302, 221, 23);
+		btnNewButton.setBounds(20, 282, 221, 23);
 		contentPane.add(btnNewButton);
 		
 		dirLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		dirLabel.setBounds(26, 339, 221, 14);
+		dirLabel.setBounds(0, 318, 269, 14);
 		contentPane.add(dirLabel);
 		
 		fileChooser = new JFileChooser();
