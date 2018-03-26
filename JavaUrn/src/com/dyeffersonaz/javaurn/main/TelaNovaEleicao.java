@@ -44,7 +44,7 @@ public class TelaNovaEleicao extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNomeDaEleio = new JLabel("Nome da Eleição");
-		lblNomeDaEleio.setBounds(10, 11, 85, 14);
+		lblNomeDaEleio.setBounds(10, 11, 221, 14);
 		contentPane.add(lblNomeDaEleio);
 		
 		textField = new JTextField();
