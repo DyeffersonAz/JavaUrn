@@ -57,7 +57,10 @@ public class TelaInicial extends JFrame {
 			
 			//When the "Nova Eleição" button is pressed
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("NOVA ELEIÇÃO");
+				//Open TelaNovaEleicao
+				TelaNovaEleicao.main(null);
+				//Closes this
+				dispose();
 			}
 			
 			
