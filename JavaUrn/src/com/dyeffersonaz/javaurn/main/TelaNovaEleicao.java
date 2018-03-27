@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
@@ -53,15 +54,15 @@ public class TelaNovaEleicao extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaNovaEleicao() {
-		setTitle("Criar nova eleição...");
+		setTitle("Criar nova eleiï¿½ï¿½o...");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 277, 399);
+		setBounds(100, 100, 277, 402);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNomeDaEleio = new JLabel("Nome da Eleição");
+		JLabel lblNomeDaEleio = new JLabel("Nome da Eleiï¿½ï¿½o");
 		lblNomeDaEleio.setBounds(20, 11, 221, 14);
 		contentPane.add(lblNomeDaEleio);
 		
@@ -70,11 +71,20 @@ public class TelaNovaEleicao extends JFrame {
 		contentPane.add(NomedaEleicao);
 		NomedaEleicao.setColumns(10);
 		
-		JLabel lblEspecificaesvideDocumentao = new JLabel("Especificações (VIDE Documentação)");
+		JLabel lblEspecificaesvideDocumentao = new JLabel("Especificaï¿½ï¿½es (VIDE Documentaï¿½ï¿½o)");
 		lblEspecificaesvideDocumentao.setBounds(20, 67, 221, 14);
 		contentPane.add(lblEspecificaesvideDocumentao);
 		
 		JButton btnCriar = new JButton("Criar!");
+		btnCriar.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent arg0) {
+				makeFiles(dir);
+			}
+			
+			
+		});
 		btnCriar.setBounds(90, 342, 91, 23);
 		contentPane.add(btnCriar);
 		
@@ -90,7 +100,6 @@ public class TelaNovaEleicao extends JFrame {
 				fileChooser.showOpenDialog(TelaNovaEleicao.this);
 				dir = fileChooser.getSelectedFile();
 				dirLabel.setText(dir.toString());
-				makeFiles(dir);
 			}
 			
 			
@@ -108,15 +117,32 @@ public class TelaNovaEleicao extends JFrame {
 	}
 	
 	public void makeFiles(File directory) {
+		//Create the files that are important to the workflow of the software
+		FileWriter fw = null;
 		try {
-			
-			File project = new File(dir.toString() + "\\" + NomedaEleicao.getText() + ".txt");
-			OutputStream os = new FileOutputStream(project);
+			File project;
+			if (NomedaEleicao.getText() != null) {
+				project = new File(dir.toString() + "\\" + NomedaEleicao.getText() + ".elec");
+			} else {
+				throw new Exception("The file can't be null");
+			}
+			fw = new FileWriter(project);
 			String[] candidatos =  especificacoes.getText().split("\n");
+			for (int i = 0; i < candidatos.length; i++) {
+				fw.write(candidatos[i] + "=" + "X");
+				fw.write(System.getProperty("line.separator"));
+			}
 			System.out.println("Arquivo criado: " + project.toString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				fw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }
