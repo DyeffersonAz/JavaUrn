@@ -38,7 +38,7 @@ public class TelaInicial extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaInicial() {
-		setTitle("Urna EletrÙnica - JAVAURN");
+		setTitle("Urna Eletr√¥nica - JAVAURN");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -46,13 +46,13 @@ public class TelaInicial extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblUrnaEletrnica = new JLabel("Urna EletrÙnica - JAVAURN");
+		JLabel lblUrnaEletrnica = new JLabel("Urna Eletr√¥nica - JAVAURN");
 		lblUrnaEletrnica.setBounds(0, 0, 442, 51);
 		lblUrnaEletrnica.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblUrnaEletrnica.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblUrnaEletrnica);
 		
-		JButton btnNewButton = new JButton("Nova EleiÁ„o");
+		JButton btnNewButton = new JButton("Nova Elei√ß√£o");
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			//When the "Nova Elei√ß√£o" button is pressed
