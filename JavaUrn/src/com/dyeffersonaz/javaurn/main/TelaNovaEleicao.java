@@ -15,7 +15,12 @@ import javax.swing.JTextArea;
 import javax.swing.JFileChooser;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.Writer;
 import java.awt.event.ActionEvent;
 
 public class TelaNovaEleicao extends JFrame {
@@ -25,6 +30,7 @@ public class TelaNovaEleicao extends JFrame {
 	public static File dir;
 	public static JFileChooser fileChooser;
 	public static JLabel dirLabel = new JLabel("...");
+	public static JTextArea especificacoes;
 
 	/**
 	 * Launch the application.
@@ -72,9 +78,9 @@ public class TelaNovaEleicao extends JFrame {
 		btnCriar.setBounds(90, 342, 91, 23);
 		contentPane.add(btnCriar);
 		
-		JTextArea specificacoes = new JTextArea();
-		specificacoes.setBounds(20, 92, 221, 180);
-		contentPane.add(specificacoes);
+		especificacoes = new JTextArea();
+		especificacoes.setBounds(20, 92, 221, 180);
+		contentPane.add(especificacoes);
 		
 		JButton btnNewButton = new JButton("Selecionar Pasta para salvar a eleição");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -84,6 +90,7 @@ public class TelaNovaEleicao extends JFrame {
 				fileChooser.showOpenDialog(TelaNovaEleicao.this);
 				dir = fileChooser.getSelectedFile();
 				dirLabel.setText(dir.toString());
+				makeFiles(dir);
 			}
 			
 			
@@ -97,5 +104,19 @@ public class TelaNovaEleicao extends JFrame {
 		
 		fileChooser = new JFileChooser();
 		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		
+	}
+	
+	public void makeFiles(File directory) {
+		try {
+			
+			File project = new File(dir.toString() + "\\" + NomedaEleicao.getText() + ".txt");
+			OutputStream os = new FileOutputStream(project);
+			String[] candidatos =  especificacoes.getText().split("\n");
+			System.out.println("Arquivo criado: " + project.toString());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
