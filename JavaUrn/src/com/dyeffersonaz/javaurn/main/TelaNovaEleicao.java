@@ -53,7 +53,7 @@ public class TelaNovaEleicao extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaNovaEleicao() {
-		setTitle("Criar nova eleiÃ§Ã£o...");
+		setTitle("Criar nova eleição...");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 277, 399);
 		contentPane = new JPanel();
@@ -61,7 +61,7 @@ public class TelaNovaEleicao extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNomeDaEleio = new JLabel("Nome da EleiÃ§Ã£o");
+		JLabel lblNomeDaEleio = new JLabel("Nome da Eleição");
 		lblNomeDaEleio.setBounds(20, 11, 221, 14);
 		contentPane.add(lblNomeDaEleio);
 		
@@ -70,7 +70,7 @@ public class TelaNovaEleicao extends JFrame {
 		contentPane.add(NomedaEleicao);
 		NomedaEleicao.setColumns(10);
 		
-		JLabel lblEspecificaesvideDocumentao = new JLabel("EspecificaÃ§Ãµes (VIDE DocumentaÃ§Ã£o)");
+		JLabel lblEspecificaesvideDocumentao = new JLabel("Especificações (VIDE Documentação)");
 		lblEspecificaesvideDocumentao.setBounds(20, 67, 221, 14);
 		contentPane.add(lblEspecificaesvideDocumentao);
 		
